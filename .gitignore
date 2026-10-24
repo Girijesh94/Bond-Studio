@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.reference/
+.impeccable/review/
+.impeccable/concept-seed.txt
+.impeccable/quality-bar.webp
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+Thumbs.db

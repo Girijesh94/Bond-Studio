@@ -1,0 +1,566 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-24T20:17:40.718853+00:00",
+  "title": "Design System: Bond Studio",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "tonalRamp": [
+          "oklch(15% 0.00951 124.86)",
+          "oklch(26% 0.00951 124.86)",
+          "oklch(38% 0.00951 124.86)",
+          "oklch(49% 0.00951 124.86)",
+          "oklch(61% 0.00951 124.86)",
+          "oklch(72% 0.00951 124.86)",
+          "oklch(84% 0.00951 124.86)",
+          "oklch(95% 0.00951 124.86)"
+        ]
+      },
+      "desk": {
+        "role": "neutral",
+        "displayName": "Desk",
+        "tonalRamp": [
+          "oklch(15% 0.00541 95.10)",
+          "oklch(26% 0.00541 95.10)",
+          "oklch(38% 0.00541 95.10)",
+          "oklch(49% 0.00541 95.10)",
+          "oklch(61% 0.00541 95.10)",
+          "oklch(72% 0.00541 95.10)",
+          "oklch(84% 0.00541 95.10)",
+          "oklch(95% 0.00541 95.10)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "tonalRamp": [
+          "oklch(15% 0.00537 95.10)",
+          "oklch(26% 0.00537 95.10)",
+          "oklch(38% 0.00537 95.10)",
+          "oklch(49% 0.00537 95.10)",
+          "oklch(61% 0.00537 95.10)",
+          "oklch(72% 0.00537 95.10)",
+          "oklch(84% 0.00537 95.10)",
+          "oklch(95% 0.00537 95.10)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Line",
+        "tonalRamp": [
+          "oklch(15% 0.00945 99.99)",
+          "oklch(26% 0.00945 99.99)",
+          "oklch(38% 0.00945 99.99)",
+          "oklch(49% 0.00945 99.99)",
+          "oklch(61% 0.00945 99.99)",
+          "oklch(72% 0.00945 99.99)",
+          "oklch(84% 0.00945 99.99)",
+          "oklch(95% 0.00945 99.99)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted",
+        "tonalRamp": [
+          "oklch(15% 0.01585 124.75)",
+          "oklch(26% 0.01585 124.75)",
+          "oklch(38% 0.01585 124.75)",
+          "oklch(49% 0.01585 124.75)",
+          "oklch(61% 0.01585 124.75)",
+          "oklch(72% 0.01585 124.75)",
+          "oklch(84% 0.01585 124.75)",
+          "oklch(95% 0.01585 124.75)"
+        ]
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Accent",
+        "tonalRamp": [
+          "oklch(15% 0.15053 36.33)",
+          "oklch(26% 0.15053 36.33)",
+          "oklch(38% 0.15053 36.33)",
+          "oklch(49% 0.15053 36.33)",
+          "oklch(61% 0.15053 36.33)",
+          "oklch(72% 0.15053 36.33)",
+          "oklch(84% 0.15053 36.33)",
+          "oklch(95% 0.15053 36.33)"
+        ]
+      },
+      "soft": {
+        "role": "neutral",
+        "displayName": "Soft",
+        "tonalRamp": [
+          "oklch(15% 0.00937 99.99)",
+          "oklch(26% 0.00937 99.99)",
+          "oklch(38% 0.00937 99.99)",
+          "oklch(49% 0.00937 99.99)",
+          "oklch(61% 0.00937 99.99)",
+          "oklch(72% 0.00937 99.99)",
+          "oklch(84% 0.00937 99.99)",
+          "oklch(95% 0.00937 99.99)"
+        ]
+      },
+      "playback": {
+        "role": "primary",
+        "displayName": "Playback",
+        "tonalRamp": [
+          "oklch(15% 0.02831 144.91)",
+          "oklch(26% 0.02831 144.91)",
+          "oklch(38% 0.02831 144.91)",
+          "oklch(49% 0.02831 144.91)",
+          "oklch(61% 0.02831 144.91)",
+          "oklch(72% 0.02831 144.91)",
+          "oklch(84% 0.02831 144.91)",
+          "oklch(95% 0.02831 144.91)"
+        ]
+      },
+      "recording": {
+        "role": "primary",
+        "displayName": "Recording",
+        "tonalRamp": [
+          "oklch(15% 0.14523 36.08)",
+          "oklch(26% 0.14523 36.08)",
+          "oklch(38% 0.14523 36.08)",
+          "oklch(49% 0.14523 36.08)",
+          "oklch(61% 0.14523 36.08)",
+          "oklch(72% 0.14523 36.08)",
+          "oklch(84% 0.14523 36.08)",
+          "oklch(95% 0.14523 36.08)"
+        ]
+      },
+      "recording-active": {
+        "role": "primary",
+        "displayName": "Recording Active",
+        "tonalRamp": [
+          "oklch(15% 0.14156 28.87)",
+          "oklch(26% 0.14156 28.87)",
+          "oklch(38% 0.14156 28.87)",
+          "oklch(49% 0.14156 28.87)",
+          "oklch(61% 0.14156 28.87)",
+          "oklch(72% 0.14156 28.87)",
+          "oklch(84% 0.14156 28.87)",
+          "oklch(95% 0.14156 28.87)"
+        ]
+      },
+      "download": {
+        "role": "primary",
+        "displayName": "Download",
+        "tonalRamp": [
+          "oklch(15% 0.02710 127.76)",
+          "oklch(26% 0.02710 127.76)",
+          "oklch(38% 0.02710 127.76)",
+          "oklch(49% 0.02710 127.76)",
+          "oklch(61% 0.02710 127.76)",
+          "oklch(72% 0.02710 127.76)",
+          "oklch(84% 0.02710 127.76)",
+          "oklch(95% 0.02710 127.76)"
+        ]
+      },
+      "download-ink": {
+        "role": "primary",
+        "displayName": "Download Ink",
+        "tonalRamp": [
+          "oklch(15% 0.04218 137.34)",
+          "oklch(26% 0.04218 137.34)",
+          "oklch(38% 0.04218 137.34)",
+          "oklch(49% 0.04218 137.34)",
+          "oklch(61% 0.04218 137.34)",
+          "oklch(72% 0.04218 137.34)",
+          "oklch(84% 0.04218 137.34)",
+          "oklch(95% 0.04218 137.34)"
+        ]
+      },
+      "selected": {
+        "role": "neutral",
+        "displayName": "Selected",
+        "tonalRamp": [
+          "oklch(15% 0.01067 100.83)",
+          "oklch(26% 0.01067 100.83)",
+          "oklch(38% 0.01067 100.83)",
+          "oklch(49% 0.01067 100.83)",
+          "oklch(61% 0.01067 100.83)",
+          "oklch(72% 0.01067 100.83)",
+          "oklch(84% 0.01067 100.83)",
+          "oklch(95% 0.01067 100.83)"
+        ]
+      },
+      "selected-line": {
+        "role": "neutral",
+        "displayName": "Selected Line",
+        "tonalRamp": [
+          "oklch(15% 0.01773 96.12)",
+          "oklch(26% 0.01773 96.12)",
+          "oklch(38% 0.01773 96.12)",
+          "oklch(49% 0.01773 96.12)",
+          "oklch(61% 0.01773 96.12)",
+          "oklch(72% 0.01773 96.12)",
+          "oklch(84% 0.01773 96.12)",
+          "oklch(95% 0.01773 96.12)"
+        ]
+      },
+      "canvas": {
+        "role": "neutral",
+        "displayName": "Canvas",
+        "tonalRamp": [
+          "oklch(15% 0.00944 262.99)",
+          "oklch(26% 0.00944 262.99)",
+          "oklch(38% 0.00944 262.99)",
+          "oklch(49% 0.00944 262.99)",
+          "oklch(61% 0.00944 262.99)",
+          "oklch(72% 0.00944 262.99)",
+          "oklch(84% 0.00944 262.99)",
+          "oklch(95% 0.00944 262.99)"
+        ]
+      },
+      "stage-blue": {
+        "role": "secondary",
+        "displayName": "Stage Blue",
+        "tonalRamp": [
+          "oklch(15% 0.07281 258.82)",
+          "oklch(26% 0.07281 258.82)",
+          "oklch(38% 0.07281 258.82)",
+          "oklch(49% 0.07281 258.82)",
+          "oklch(61% 0.07281 258.82)",
+          "oklch(72% 0.07281 258.82)",
+          "oklch(84% 0.07281 258.82)",
+          "oklch(95% 0.07281 258.82)"
+        ]
+      },
+      "stage-lilac": {
+        "role": "secondary",
+        "displayName": "Stage Lilac",
+        "tonalRamp": [
+          "oklch(15% 0.10197 301.75)",
+          "oklch(26% 0.10197 301.75)",
+          "oklch(38% 0.10197 301.75)",
+          "oklch(49% 0.10197 301.75)",
+          "oklch(61% 0.10197 301.75)",
+          "oklch(72% 0.10197 301.75)",
+          "oklch(84% 0.10197 301.75)",
+          "oklch(95% 0.10197 301.75)"
+        ]
+      },
+      "stage-peach": {
+        "role": "secondary",
+        "displayName": "Stage Peach",
+        "tonalRamp": [
+          "oklch(15% 0.10341 59.12)",
+          "oklch(26% 0.10341 59.12)",
+          "oklch(38% 0.10341 59.12)",
+          "oklch(49% 0.10341 59.12)",
+          "oklch(61% 0.10341 59.12)",
+          "oklch(72% 0.10341 59.12)",
+          "oklch(84% 0.10341 59.12)",
+          "oklch(95% 0.10341 59.12)"
+        ]
+      },
+      "stage-rose": {
+        "role": "secondary",
+        "displayName": "Stage Rose",
+        "tonalRamp": [
+          "oklch(15% 0.13093 12.33)",
+          "oklch(26% 0.13093 12.33)",
+          "oklch(38% 0.13093 12.33)",
+          "oklch(49% 0.13093 12.33)",
+          "oklch(61% 0.13093 12.33)",
+          "oklch(72% 0.13093 12.33)",
+          "oklch(84% 0.13093 12.33)",
+          "oklch(95% 0.13093 12.33)"
+        ]
+      },
+      "stage-mint": {
+        "role": "secondary",
+        "displayName": "Stage Mint",
+        "tonalRamp": [
+          "oklch(15% 0.07363 153.16)",
+          "oklch(26% 0.07363 153.16)",
+          "oklch(38% 0.07363 153.16)",
+          "oklch(49% 0.07363 153.16)",
+          "oklch(61% 0.07363 153.16)",
+          "oklch(72% 0.07363 153.16)",
+          "oklch(84% 0.07363 153.16)",
+          "oklch(95% 0.07363 153.16)"
+        ]
+      },
+      "stage-yellow": {
+        "role": "secondary",
+        "displayName": "Stage Yellow",
+        "tonalRamp": [
+          "oklch(15% 0.11982 94.60)",
+          "oklch(26% 0.11982 94.60)",
+          "oklch(38% 0.11982 94.60)",
+          "oklch(49% 0.11982 94.60)",
+          "oklch(61% 0.11982 94.60)",
+          "oklch(72% 0.11982 94.60)",
+          "oklch(84% 0.11982 94.60)",
+          "oklch(95% 0.11982 94.60)"
+        ]
+      },
+      "stage-aqua": {
+        "role": "secondary",
+        "displayName": "Stage Aqua",
+        "tonalRamp": [
+          "oklch(15% 0.08654 196.51)",
+          "oklch(26% 0.08654 196.51)",
+          "oklch(38% 0.08654 196.51)",
+          "oklch(49% 0.08654 196.51)",
+          "oklch(61% 0.08654 196.51)",
+          "oklch(72% 0.08654 196.51)",
+          "oklch(84% 0.08654 196.51)",
+          "oklch(95% 0.08654 196.51)"
+        ]
+      },
+      "stage-pink": {
+        "role": "secondary",
+        "displayName": "Stage Pink",
+        "tonalRamp": [
+          "oklch(15% 0.10128 342.34)",
+          "oklch(26% 0.10128 342.34)",
+          "oklch(38% 0.10128 342.34)",
+          "oklch(49% 0.10128 342.34)",
+          "oklch(61% 0.10128 342.34)",
+          "oklch(72% 0.10128 342.34)",
+          "oklch(84% 0.10128 342.34)",
+          "oklch(95% 0.10128 342.34)"
+        ]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "White",
+        "tonalRamp": [
+          "oklch(15% 0.00000 89.88)",
+          "oklch(26% 0.00000 89.88)",
+          "oklch(38% 0.00000 89.88)",
+          "oklch(49% 0.00000 89.88)",
+          "oklch(61% 0.00000 89.88)",
+          "oklch(72% 0.00000 89.88)",
+          "oklch(84% 0.00000 89.88)",
+          "oklch(95% 0.00000 89.88)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Page heading."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Panel headings."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Page description."
+      },
+      "instruction": {
+        "displayName": "Instruction",
+        "purpose": "Explanatory panel copy."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Action buttons and ball-name fields."
+      },
+      "item": {
+        "displayName": "Item",
+        "purpose": "Stage names."
+      }
+    },
+    "shadows": [
+      {
+        "name": "modal",
+        "value": "0 20px 70px #0003",
+        "purpose": "Help dialog only; ordinary panels are flat."
+      }
+    ],
+    "motion": [
+      {
+        "name": "button-state",
+        "value": "background .16s, color .16s, box-shadow .16s",
+        "purpose": "Button state changes; disabled under reduced-motion preference."
+      },
+      {
+        "name": "toast",
+        "value": "opacity .2s, transform .2s",
+        "purpose": "Status toast entrance and dismissal."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "mobile",
+        "value": "640px"
+      },
+      {
+        "name": "two-column",
+        "value": "1000px"
+      },
+      {
+        "name": "desktop-preview-fit",
+        "value": "1001px"
+      },
+      {
+        "name": "compact-desktop",
+        "value": "1200px"
+      },
+      {
+        "name": "wide",
+        "value": "1500px"
+      }
+    ],
+    "simulation": {
+      "name": "Circular arena",
+      "source": "src/renderer.js",
+      "colors": {
+        "background": "#000000",
+        "ink": "#27393b",
+        "border": "#78bdae",
+        "progress": "#edba7b",
+        "launcher": "#31766d"
+      },
+      "arena": {
+        "shape": "circle",
+        "radius": 244,
+        "center": [
+          270,
+          475
+        ]
+      },
+      "tokens": "ceramic pastel balls with inset rims",
+      "effects": "rotating four-point merge sparks",
+      "typography": "DM Sans Variable",
+      "imageModes": [
+        "circle: immediate circular cover crop",
+        "original: image-only with plain-background removal and alpha trimming"
+      ],
+      "launcher": "animated cannon: recoil, muzzle flash, smoke on every shot",
+      "text": "numeric timer and fallback stage numerals only",
+      "finalMergeSeconds": 60,
+      "finaleHoldSeconds": 2,
+      "soundSemitones": [
+        0,
+        -2,
+        -4,
+        -5,
+        -7,
+        -9,
+        -11,
+        -12
+      ],
+      "borderTreatment": "mint wall, twelve time marks and amber progress arc"
+    },
+    "imageAudioControls": {
+      "placement": "one audio control line in every image row",
+      "actions": [
+        "add or replace audio",
+        "preview assigned audio",
+        "remove assigned audio"
+      ],
+      "identity": "stable image ID, preserved across reorder and reload"
+    }
+  },
+  "components": [
+    {
+      "name": "Play simulation",
+      "kind": "button",
+      "refersTo": "button-playback",
+      "description": "Play simulation action from the shipped editor.",
+      "html": "<button class=\"ds-play\">Play simulation</button>",
+      "css": ".ds-play{font-family:'DM Sans Variable','Segoe UI',sans-serif;background:#2e3b2e;color:#fff;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:41px;border:0;border-radius:8px;font-size:12px;font-weight:550;padding:10px 13px;cursor:pointer;transition:background .16s,color .16s,box-shadow .16s;min-width:165px;}.ds-play:hover:not(:disabled){filter:brightness(.97)}.ds-play:focus-visible{outline:2px solid var(--accent,#bc4d2e);outline-offset:4px}.ds-play:disabled{opacity:.35;cursor:default}@media(prefers-reduced-motion:reduce){.ds-play{transition:none}}"
+    },
+    {
+      "name": "Record video",
+      "kind": "button",
+      "refersTo": "button-record",
+      "description": "Record video action from the shipped editor.",
+      "html": "<button class=\"ds-record\">Record video</button>",
+      "css": ".ds-record{font-family:'DM Sans Variable','Segoe UI',sans-serif;background:#bb5033;color:#fff;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:41px;border:0;border-radius:8px;font-size:12px;font-weight:550;padding:10px 13px;cursor:pointer;transition:background .16s,color .16s,box-shadow .16s;}.ds-record:hover:not(:disabled){filter:brightness(.97)}.ds-record:focus-visible{outline:2px solid var(--accent,#bc4d2e);outline-offset:4px}.ds-record:disabled{opacity:.35;cursor:default}@media(prefers-reduced-motion:reduce){.ds-record{transition:none}}"
+    },
+    {
+      "name": "Download video",
+      "kind": "button",
+      "refersTo": "button-download",
+      "description": "Download video action from the shipped editor.",
+      "html": "<button class=\"ds-download\">Download video</button>",
+      "css": ".ds-download{font-family:'DM Sans Variable','Segoe UI',sans-serif;background:#dfe8d5;color:#33432d;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:41px;border:0;border-radius:8px;font-size:12px;font-weight:550;padding:10px 13px;cursor:pointer;transition:background .16s,color .16s,box-shadow .16s;}.ds-download:hover:not(:disabled){filter:brightness(.97)}.ds-download:focus-visible{outline:2px solid var(--accent,#bc4d2e);outline-offset:4px}.ds-download:disabled{opacity:.35;cursor:default}@media(prefers-reduced-motion:reduce){.ds-download{transition:none}}"
+    },
+    {
+      "name": "Upload images",
+      "kind": "button",
+      "refersTo": "button-subtle",
+      "description": "Upload images action from the shipped editor.",
+      "html": "<button class=\"ds-subtle\">Upload images</button>",
+      "css": ".ds-subtle{font-family:'DM Sans Variable','Segoe UI',sans-serif;background:transparent;color:#252722;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:41px;border:0;border-radius:8px;font-size:12px;font-weight:550;padding:10px 13px;cursor:pointer;transition:background .16s,color .16s,box-shadow .16s;border:1px solid var(--line,#e4e3dc);}.ds-subtle:hover:not(:disabled){filter:brightness(.97)}.ds-subtle:focus-visible{outline:2px solid var(--accent,#bc4d2e);outline-offset:4px}.ds-subtle:disabled{opacity:.35;cursor:default}@media(prefers-reduced-motion:reduce){.ds-subtle{transition:none}}"
+    },
+    {
+      "name": "Ball name",
+      "kind": "input",
+      "description": "Inline editable stage identity.",
+      "html": "<input class=\"ds-name\" aria-label=\"Ball name\" value=\"Ball 1\">",
+      "css": ".ds-name{font-family:'DM Sans Variable','Segoe UI',sans-serif;color:#343b2f;font-size:12px;font-weight:550;background:transparent;border:0;border-bottom:1px solid transparent;padding:2px 0;max-width:180px}.ds-name:hover{border-bottom-color:var(--line,#e4e3dc)}.ds-name:focus-visible{outline:2px solid var(--accent,#bc4d2e);outline-offset:4px}"
+    },
+    {
+      "name": "Paper panel",
+      "kind": "card",
+      "refersTo": "panel",
+      "description": "Flat container for an editor task.",
+      "html": "<section class=\"ds-panel\"><h2>Merge sequence</h2><p>Two of a kind become the next in line.</p></section>",
+      "css": ".ds-panel{font-family:'DM Sans Variable','Segoe UI',sans-serif;background:var(--paper,#fffefa);color:#252722;border:1px solid var(--line,#e4e3dc);border-radius:var(--radius,14px);padding:20px;max-width:310px}.ds-panel h2{font-size:15px;letter-spacing:-.25px;font-weight:650;margin:0}.ds-panel p{font-size:12px;line-height:1.8;color:var(--muted,#72766c);margin:10px 0 0}"
+    },
+    {
+      "name": "Optional status",
+      "kind": "chip",
+      "description": "Noninteractive metadata for the selected sound.",
+      "html": "<span class=\"ds-optional\">Optional</span>",
+      "css": ".ds-optional{font-family:'DM Sans Variable','Segoe UI',sans-serif;font-size:9px;color:var(--muted,#72766c);background:#f1f0e9;padding:4px 7px;border-radius:4px}"
+    },
+    {
+      "name": "Selected stage",
+      "kind": "custom",
+      "refersTo": "stage-selected",
+      "description": "Persistent pastel identity with quiet selection emphasis.",
+      "html": "<button class=\"ds-stage\" aria-pressed=\"true\"><span class=\"ds-ball\"></span><span class=\"ds-copy\"><strong>Ball 1</strong><span>Starter ball</span></span></button>",
+      "css": ".ds-stage{font-family:'DM Sans Variable','Segoe UI',sans-serif;display:flex;align-items:center;text-align:left;gap:11px;min-height:66px;padding:6px;border:1px solid #e3e0d3;border-radius:9px;background:#f1f0e8;color:#252722;cursor:pointer}.ds-ball{width:37px;height:37px;border-radius:50%;background:#a9c7f5;flex-shrink:0}.ds-copy{display:flex;flex-direction:column;gap:4px}.ds-copy strong{font-size:13px;font-weight:550}.ds-copy>span{font-size:10px;color:var(--muted,#72766c)}.ds-stage:hover{filter:brightness(.97)}.ds-stage:focus-visible{outline:2px solid var(--accent,#bc4d2e);outline-offset:4px}"
+    },
+    {
+      "name": "Header home link",
+      "kind": "nav",
+      "description": "The wordmark is the sole home link, with no invented navigation tabs.",
+      "html": "<a class=\"ds-brand\" href=\"#\">bond<span>studio</span></a>",
+      "css": ".ds-brand{font-family:'DM Sans Variable','Segoe UI',sans-serif;display:inline-flex;align-items:center;color:#252722;text-decoration:none;font-size:24px;font-weight:700;letter-spacing:-1px}.ds-brand span{font-weight:450;color:#64685e}.ds-brand:focus-visible{outline:2px solid var(--accent,#bc4d2e);outline-offset:4px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Sound-Design Workbench",
+    "overview": "Warm paper surfaces and compact, plainly named controls frame a colorful moving canvas. The interface feels quiet and practical: image identities provide recognition while olive and terracotta actions establish playback and recording priority.\n\nThe shipped system uses one bundled sans-serif family, delicate borders, and softly rounded containers. Ceramic tokens and a rounded rectangular garden playfield belong to the simulation; editor surfaces give those materials room to read.",
+    "keyCharacteristics": [
+      "Warm paper and fine dividers.",
+      "Persistent pastel identities across images and sounds.",
+      "Olive playback and terracotta recording controls.",
+      "An ivory portrait canvas with a plum playfield surround as the visual center."
+    ],
+    "rules": [
+      {
+        "name": "The Identity Travels Rule",
+        "body": "A stage keeps its pastel identity when its position changes; the corresponding thumbnail and pitch bar stay synchronized.",
+        "section": "colors"
+      },
+      {
+        "name": "The Quiet Frame Rule",
+        "body": "Use borders and tonal separation for ordinary editor surfaces; reserve the shipped diffuse shadow for the modal.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** keep stage identity synchronized across thumbnails, audition bars, and simulation spheres.",
+      "**Do** use olive for playback and terracotta for recording.",
+      "**Do** keep keyboard focus visible with the shared accent outline.",
+      "**Do** let the portrait preview lead the mobile workspace."
+    ],
+    "donts": [
+      "**Don't** add ordinary panel shadows where the shipped editor uses flat paper and borders.",
+      "**Don't** replace explicit action labels with decorative labels.",
+      "**Don't** treat stage colors as unrelated decoration."
+    ]
+  }
+}
