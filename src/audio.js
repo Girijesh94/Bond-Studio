@@ -1,4 +1,4 @@
-export const SEMITONES = [0, -2, -4, -5, -7, -9, -11, -12];
+export const SEMITONES = [0, -3, -6, -9, -12, -15, -18, -24];
 export class BondAudio {
   constructor() { this.context = null; this.volume = .65; this.muted = false; this.shared = null; this.overrides = new Map(); this.active = new Set(); }
   async init() {
@@ -27,7 +27,7 @@ export class BondAudio {
       envelope.gain.setValueAtTime(.85, t + Math.max(.006, duration - .035)); envelope.gain.linearRampToValueAtTime(0, t + duration);
       source.connect(envelope); source.start(t); source.stop(t + duration);
     } else {
-      source = this.context.createOscillator(); source.type = 'sine';
+      source = this.context.createOscillator(); source.type = 'triangle';
       const frequency = 330 * 2 ** (SEMITONES[level] / 12);
       source.frequency.setValueAtTime(frequency * 1.55, t); source.frequency.exponentialRampToValueAtTime(frequency, t + .06);
       envelope.gain.setValueAtTime(.001, t); envelope.gain.exponentialRampToValueAtTime(.55, t + .008); envelope.gain.exponentialRampToValueAtTime(.001, t + .5);

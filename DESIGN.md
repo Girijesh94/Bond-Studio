@@ -109,6 +109,20 @@ components:
     backgroundColor: "{colors.selected}"
     rounded: "{rounded.row}"
     padding: "6px"
+  mode-selected:
+    backgroundColor: "{colors.playback}"
+    textColor: "{colors.white}"
+    rounded: "{rounded.select}"
+    padding: "9px 11px"
+    height: "38px"
+  sound-tab-selected:
+    backgroundColor: "transparent"
+    textColor: "{colors.playback}"
+    padding: "10px 0 12px"
+  melody-note-selected:
+    backgroundColor: "{colors.accent}"
+    rounded: "2px"
+    height: "22px"
   portrait-preview:
     backgroundColor: "{colors.canvas}"
     rounded: "{rounded.panel}"
@@ -173,6 +187,10 @@ Above (1000px), the header is (70px) tall and preview width is constrained by av
 
 At (1200px) and below, side columns tighten to (270px), gutters become (24px), and panel padding becomes (16px). At (1000px) and below, the workspace becomes two columns and settings move below them. At (640px) and below, the preview leads a single column, caps at (330px), and the panels follow; gutters become (18px) and panel padding becomes (19px). At (1500px) and above, the grid gap expands to (40px).
 
+The expanded studio places a compact simulation selector and project actions above the workspace; the earlier page heading is hidden. Above (1000px), the current grid is `minmax(270px,310px) minmax(280px,1fr) minmax(280px,330px)`. Scene settings and cast form the left stack, a preview wrapper capped at (390px) occupies the center, and export precedes the sound tabs on the right. The sticky preview inset is (18px); its canvas and metadata width are `min(100%, max(185px, calc((100dvh - 375px) * .5625)))`, overriding the earlier preview sizing.
+
+At (1000px) and below, the left stack spans both rows while preview and settings occupy the right column, with columns `minmax(240px,1fr) minmax(280px,1.15fr)`. At (640px) and below, the preview leads, the scene/cast stack follows, then settings. A labeled native simulation select replaces the mode strip. The mobile canvas and metadata width are `min(100%, max(245px, calc((100dvh - 350px) * .5625)))`, within the preview's (330px) cap. The piano roll scrolls inside its own container rather than widening the page.
+
 ## Elevation & Depth
 
 The editor is flat at rest. Paper, fine borders, selection fills, and the plum playfield surround establish layers without panel shadows. The modal alone uses a diffuse shadow (`0 20px 70px #0003`) and a translucent backdrop (`#181c1a77`). Rendered tokens use flat pastel fills, inset rims, off-centre highlights, and small soft shadows, separate from editor elevation.
@@ -200,10 +218,22 @@ Paper panels use a fine line border and the panel radius. The selected stage is 
 The ball-name editor is a transparent inline field with a normally transparent bottom border; hover reveals the line border. Duration selects use a paper background, fine border, select radius, and padding (6px 8px). Range controls use the terracotta accent. All share the keyboard focus treatment.
 
 ### Navigation
-The header contains a home wordmark, storage status, and help action; there is no tab or sidebar navigation pattern. At mobile width, the storage status retains its icon while hiding text.
+The header contains a home wordmark, storage status, and help action. At mobile width, the storage status retains its icon while hiding text. A separate simulation mode strip and sound-design tabs provide task navigation within the workbench; their selected states are described below.
 
 ### Stage Identity and Pitch Ladder
 Circular thumbnails (37px) pair stage names with sequence metadata; selected-ball thumbnails shrink to (33px). The eight audition bars reuse the same stage colors, rise from (17px) in increments of (4px), and become fully opaque on hover. Each audition target is a real button with a stage-specific accessible name.
+
+### Simulation Mode Selector
+A horizontally scrollable strip presents thirteen plainly named simulation buttons. Unselected buttons are transparent with muted olive text; selection uses the existing olive playback fill and white text, with gently curved corners (6px), padding (9px 11px), and minimum height (38px). `aria-pressed` tracks the active mode. The current mode description sits below the strip. On phones the native select provides the same choice; project Save/Open actions remain adjacent.
+
+### Sound Design Tabs
+Two equal-width, transparent tabs divide Sound & images from Melody & MIDI. A fine baseline and olive selected underline (2px) establish state without a new card. Labels use (12px); selected labels increase to weight (650). Arrow keys, Home, and End switch tabs and move focus. The existing focus outline remains visible. Only the selected sound-design content is shown, while export stays above the tabs.
+
+### Scene Controls and Project Fields
+Scene settings use existing paper panels. Relevant physics ranges pair an explicit label with a right-aligned tabular output; hidden controls do not leave empty rows. Labels use (12px), increasing to (13px) on phones. A divided seed row combines a numeric field, a shuffle icon button, and a full-width activity-search action. Seed and watermark fields use paper fill, the fine line border, and the select radius; field text is (12px). The selected cast detail includes a native color control. Watermark and timer options sit above the recording section, and a camera icon joins the preview transport for PNG snapshots. Project Save/Open actions use compact secondary buttons; recording temporarily disables settings that could change the captured scene.
+
+### Melody Piano Roll
+The melody panel inherits paper, border, and panel rounding. Its heading uses (15px); instructions and the enable switch use (12px), while select labels and secondary actions use (11px). Instrument and step selects sit with a Hear sound action. A scrollable well (maximum height 285px, 6px rounding) contains a grid at least (420px) wide with (2px) gaps. Neutral note cells distinguish accidentals tonally; selected notes use terracotta with an inset outline. Cells are (22px) tall with a minimum width of (22px), rising to (28px) tall on phones. Note and step labels use (10px), or (11px) on phones; these compact labels are not a general minimum text standard. Each cell is a pressed-state button named by step and pitch; focus stays on the edited cell. Pagination, Preset/Clear, and MIDI import/export actions sit below the roll with a live status message. Notes are paged in groups of sixteen; the grid scrolls independently on narrow screens.
 
 ## Do's and Don'ts
 
@@ -228,3 +258,6 @@ Every stage row has a second line with Add audio or Replace audio, the assigned 
 
 ### Current circular simulation
 The playfield is a true circle of radius 244 at (270, 475) on the 540 by 960 pure-black canvas. Mint wall, twelve muted clock marks, and amber elapsed-time arc provide an original border treatment. The existing cannon sits over the top of the circle. No long chute, rainbow border, copied watermark, slogan, or reference logos are introduced. Ball image modes, individual sound controls, and the 60-second finale remain in place.
+
+### Current rainbow border and normal merge motion
+User explicitly requested the reference-style glowing rainbow outline. A rotating conic gradient is drawn with six pastel spectrum stops, a soft same-color blurred pass, and a crisp 3px main stroke. There is no outer timeline, clock tick, or progress arc. Ball radii strictly increase from 24px to 116px, and the stage legend also increases in size. A new merged form appears at full base size, has a small damped pop, and emits one thin expanding outline over 0.4 seconds. Four-point sparks and the long final-pair hover are removed. The cannon fires through the 60th second and the final bond lands within that second; recording ends at 60 seconds without an extra hold. Final audio is two octaves below the source.

@@ -20,3 +20,6 @@ Final merge is scheduled at 60 seconds with mass-conserving pair guidance and ex
 
 ## Current user-requested circle and black background
 The simulation canvas now uses a circular arena on pure black, with a mint wall, twelve clock marks and an amber progress arc as its original border treatment. The animated cannon and previous functional requirements remain. This supersedes the earlier garden rectangle for the simulation only.
+
+## Current user-pinned rainbow and continuous feed
+The latest brief explicitly replaces the mint/amber wall with a glowing rotating rainbow outline and removes all outer timeline graphics. Reference-like expanding merge outlines replace sparks and the long finale approach. Each of eight sizes is strictly larger than the previous size; the first two have radii 24/32. Feed continues through the last second, final merge is in that second, and default recording stops at 60 seconds with no added hold. Export is genuine MP4 with H.264/AAC prepared locally. This is the current canvas direction and supersedes conflicting earlier notes.

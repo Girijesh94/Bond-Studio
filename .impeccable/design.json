@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-24T20:17:40.718853+00:00",
+  "generatedAt": "2026-10-25T13:46:39.164277+00:00",
   "title": "Design System: Bond Studio",
   "extensions": {
     "colorMeta": {
@@ -427,7 +427,7 @@
         ]
       },
       "tokens": "ceramic pastel balls with inset rims",
-      "effects": "rotating four-point merge sparks",
+      "effects": "full-size birth, gentle damped pop, thin expanding merge outline",
       "typography": "DM Sans Variable",
       "imageModes": [
         "circle: immediate circular cover crop",
@@ -435,19 +435,39 @@
       ],
       "launcher": "animated cannon: recoil, muzzle flash, smoke on every shot",
       "text": "numeric timer and fallback stage numerals only",
-      "finalMergeSeconds": 60,
-      "finaleHoldSeconds": 2,
+      "finalMergeSeconds": 59.8,
+      "finaleHoldSeconds": 0,
       "soundSemitones": [
         0,
-        -2,
-        -4,
-        -5,
-        -7,
+        -3,
+        -6,
         -9,
-        -11,
-        -12
+        -12,
+        -15,
+        -18,
+        -24
       ],
-      "borderTreatment": "mint wall, twelve time marks and amber progress arc"
+      "borderTreatment": "glowing rotating rainbow; no outer timeline, ticks, or progress arc",
+      "borderStops": [
+        "#ff859c",
+        "#f4c96a",
+        "#a5e48c",
+        "#72dbe5",
+        "#aa8df4",
+        "#f194d2"
+      ],
+      "ballRadii": [
+        24,
+        32,
+        41,
+        52,
+        65,
+        80,
+        97,
+        116
+      ],
+      "lastShotSeconds": 59.6,
+      "export": "MP4 / H.264 + AAC through local FFmpeg conversion"
     },
     "imageAudioControls": {
       "placement": "one audio control line in every image row",
@@ -457,6 +477,19 @@
         "remove assigned audio"
       ],
       "identity": "stable image ID, preserved across reorder and reload"
+    },
+    "studioControls": {
+      "source": [
+        "src/studio.js",
+        "src/studio.css",
+        "src/music.js",
+        "src/music.css"
+      ],
+      "modeCount": 13,
+      "navigation": "desktop scrollable pressed buttons; native select at 640px and below",
+      "settingsOrder": "export, sound-design tabs, selected sound-design content",
+      "pianoRoll": "16 steps per page, 420px minimum width, independent overflow",
+      "recording": "scene, project, melody and export option controls lock during recording"
     }
   },
   "components": [
@@ -525,9 +558,40 @@
     {
       "name": "Header home link",
       "kind": "nav",
-      "description": "The wordmark is the sole home link, with no invented navigation tabs.",
+      "description": "Home wordmark in the header; simulation choices and sound-design tabs sit separately in the workbench.",
       "html": "<a class=\"ds-brand\" href=\"#\">bond<span>studio</span></a>",
       "css": ".ds-brand{font-family:'DM Sans Variable','Segoe UI',sans-serif;display:inline-flex;align-items:center;color:#252722;text-decoration:none;font-size:24px;font-weight:700;letter-spacing:-1px}.ds-brand span{font-weight:450;color:#64685e}.ds-brand:focus-visible{outline:2px solid var(--accent,#bc4d2e);outline-offset:4px}"
+    },
+    {
+      "name": "Simulation mode selector",
+      "kind": "nav",
+      "refersTo": "mode-selected",
+      "description": "Scrollable pressed-state mode buttons; a native select replaces the strip at 640px and below.",
+      "html": "<div class=\"ds-modes\" role=\"group\" aria-label=\"Simulation modes\"><button aria-pressed=\"false\">Bond</button><button aria-pressed=\"true\">Ring escape</button><button aria-pressed=\"false\">Infinite loop</button></div><label class=\"ds-mobile-mode\">Simulation<select><option>Bond</option><option selected>Ring escape</option><option>Infinite loop</option></select></label>",
+      "css": ".ds-modes{font-family:'DM Sans Variable','Segoe UI',sans-serif;display:flex;gap:3px;overflow-x:auto;padding:10px 0 9px}.ds-modes button{font-family:'DM Sans Variable','Segoe UI',sans-serif;flex-shrink:0;border:0;background:transparent;padding:9px 11px;border-radius:6px;font-size:12px;color:#606753;min-height:38px;cursor:pointer}.ds-modes button[aria-pressed=true]{color:#fff;background:#2e3b2e}.ds-modes button:hover{filter:brightness(.97)}.ds-modes button:focus-visible{outline:2px solid var(--accent,#bc4d2e);outline-offset:4px}.ds-mobile-mode{display:none}.ds-mobile-mode select{background:var(--paper,#fffefa);color:#303a2c;border:1px solid var(--line,#e4e3dc);border-radius:6px;padding:8px;font-size:12px}.ds-mobile-mode select:focus-visible{outline:2px solid var(--accent,#bc4d2e);outline-offset:4px}@media(max-width:640px){.ds-modes{display:none}.ds-mobile-mode{font-family:'DM Sans Variable','Segoe UI',sans-serif;display:flex;flex-direction:column;gap:7px;font-size:11px}}"
+    },
+    {
+      "name": "Sound design tabs",
+      "kind": "nav",
+      "refersTo": "sound-tab-selected",
+      "description": "Sound & images and Melody & MIDI use an olive selected underline; export remains above this navigation.",
+      "html": "<div class=\"ds-sound-tabs\" role=\"tablist\" aria-label=\"Sound design\"><button role=\"tab\" aria-selected=\"true\">Sound &amp; images</button><button role=\"tab\" aria-selected=\"false\" tabindex=\"-1\">Melody &amp; MIDI</button></div>",
+      "css": ".ds-sound-tabs{font-family:'DM Sans Variable','Segoe UI',sans-serif;display:flex;border-bottom:1px solid var(--line,#e4e3dc);gap:14px}.ds-sound-tabs button{font-family:'DM Sans Variable','Segoe UI',sans-serif;border:0;background:transparent;flex:1;font-size:12px;padding:10px 0 12px;border-bottom:2px solid transparent;color:#66705e;cursor:pointer}.ds-sound-tabs button[aria-selected=true]{border-bottom-color:#2e3b2e;color:#2e3b2e;font-weight:650}.ds-sound-tabs button:hover{filter:brightness(.97)}.ds-sound-tabs button:focus-visible{outline:2px solid var(--accent,#bc4d2e);outline-offset:4px}"
+    },
+    {
+      "name": "Scene range and seed",
+      "kind": "input",
+      "description": "Mode-relevant ranges and a repeatable numeric seed reuse paper fields and the terracotta native accent.",
+      "html": "<div class=\"ds-scene\"><label class=\"ds-scene-range\"><span>Gravity <output>400</output></span><input type=\"range\" min=\"0\" max=\"1000\" value=\"400\"></label><label class=\"ds-seed\">Seed<input type=\"number\" value=\"8271\" min=\"0\" max=\"4294967295\"></label></div>",
+      "css": ".ds-scene{font-family:'DM Sans Variable','Segoe UI',sans-serif;color:#252722}.ds-scene-range{display:block;margin-top:15px}.ds-scene-range>span{display:flex;justify-content:space-between;gap:8px;font-size:12px;margin-bottom:9px}.ds-scene-range output{font-variant-numeric:tabular-nums;color:#59664d}.ds-scene-range input{width:100%;height:5px;margin:4px 0 7px;accent-color:var(--accent,#bc4d2e);cursor:pointer}.ds-seed{display:flex;align-items:center;gap:9px;padding-top:18px;margin-top:15px;border-top:1px solid var(--line,#e4e3dc);font-size:12px}.ds-seed input{font-family:'DM Sans Variable','Segoe UI',sans-serif;min-width:0;width:100%;border:1px solid var(--line,#e4e3dc);border-radius:6px;background:var(--paper,#fffefa);padding:8px;color:#3d4535;font-size:12px;font-variant-numeric:tabular-nums}.ds-scene input:focus-visible{outline:2px solid var(--accent,#bc4d2e);outline-offset:4px}@media(max-width:640px){.ds-scene-range{margin-top:20px}.ds-scene-range>span{font-size:13px}.ds-scene-range input{height:7px}}"
+    },
+    {
+      "name": "Melody piano roll",
+      "kind": "custom",
+      "refersTo": "melody-note-selected",
+      "description": "Scrollable note grid with tonal accidentals, terracotta pressed cells, and visible keyboard focus.",
+      "html": "<div class=\"ds-roll-scroll\"><div class=\"ds-roll\" role=\"group\" aria-label=\"Melody piano roll\"><span></span><span>1</span><span>2</span><span>3</span><span>C5</span><button aria-label=\"Step 1, C5\" aria-pressed=\"true\"></button><button aria-label=\"Step 2, C5\" aria-pressed=\"false\"></button><button aria-label=\"Step 3, C5\" aria-pressed=\"false\"></button><span>C♯4</span><button class=\"ds-accidental\" aria-label=\"Step 1, C sharp 4\" aria-pressed=\"false\"></button><button class=\"ds-accidental\" aria-label=\"Step 2, C sharp 4\" aria-pressed=\"true\"></button><button class=\"ds-accidental\" aria-label=\"Step 3, C sharp 4\" aria-pressed=\"false\"></button></div></div>",
+      "css": ".ds-roll-scroll{font-family:'DM Sans Variable','Segoe UI',sans-serif;max-height:285px;overflow:auto;border:1px solid var(--line,#e4e3dc);border-radius:6px;padding:7px;background:#f8f7f1}.ds-roll{display:grid;grid-template-columns:32px repeat(3,minmax(22px,1fr));gap:2px;min-width:420px}.ds-roll span{font-size:10px;color:var(--muted,#72766c);text-align:center;align-self:center;font-variant-numeric:tabular-nums}.ds-roll button{height:22px;min-width:22px;background:#e9e7dd;border:0;border-radius:2px;padding:0;cursor:pointer}.ds-roll button.ds-accidental{background:#dddad0}.ds-roll button[aria-pressed=true]{background:var(--accent,#bc4d2e);box-shadow:inset 0 0 0 1px #853920}.ds-roll button:hover{filter:brightness(.97)}.ds-roll button:focus-visible{outline:2px solid var(--accent,#bc4d2e);outline-offset:0;z-index:1}@media(max-width:640px){.ds-roll button{height:28px}.ds-roll span{font-size:11px}}"
     }
   ],
   "narrative": {

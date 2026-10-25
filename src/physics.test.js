@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { Simulation, ARENA, RADII } from './physics.js';
+import { Simulation, ARENA, RADII, FINAL_MERGE_TIME } from './physics.js';
 import { SEMITONES, BondAudio } from './audio.js';
 
 test('matching balls create exactly one next-stage ball and one sound event', () => {
@@ -40,17 +40,22 @@ test('shared and per-image sounds both deepen with each higher stage', () => {
   engine.overrides.set('ball', {duration:1}); engine.play(5, 'ball'); assert.equal(rates[1].value, 2 ** (SEMITONES[5] / 12));
   for (let i = 1; i < SEMITONES.length; i++) assert.ok(SEMITONES[i] < SEMITONES[i - 1]);
 });
-test('final form occurs at 60 seconds, never earlier, with all 128 starters conserved', () => {
+test('cannon fires through the 60th second and completes the final bond before the clip ends', () => {
   for (const hz of [30, 60, 120]) for (const seed of [1, 8271, 17291]) {
     const events = [], sim = new Simulation(level => events.push({level, time: sim.elapsed})); sim.seed = seed;
     for (let tick = 1; tick <= hz * 60; tick++) {
       sim.step(1 / hz);
       assert.equal(sim.balls.reduce((mass, b) => mass + 2 ** b.level, 0), sim.shots);
-      if (tick < hz * 60) assert.ok(sim.highest < 7);
+      if (sim.elapsed < FINAL_MERGE_TIME - 1e-7) assert.ok(sim.highest < 7);
     }
-    assert.equal(sim.shots, 128); assert.equal(sim.merges, 127); assert.equal(sim.finalAt, 60);
+    assert.equal(sim.shots, 128); assert.equal(sim.merges, 127); assert.ok(sim.finalAt >= 59 && sim.finalAt < 60); assert.ok(sim.lastShot >= 59 && sim.lastShot < sim.finalAt);
     assert.equal(sim.balls.length, 1); assert.equal(sim.balls[0].level, 7);
-    assert.equal(events.filter(e => e.level === 7).length, 1); assert.equal(events.at(-1).time, 60);
+    assert.equal(events.filter(e => e.level === 7).length, 1); assert.ok(events.at(-1).time >= 59 && events.at(-1).time < 60);
     sim.step(1); assert.equal(sim.shots, 128); assert.equal(sim.balls.length, 1);
   }
+});
+
+test('all eight ball sizes are distinct and increase; first two are comfortably visible', () => {
+  assert.ok(RADII[0] >= 24); assert.ok(RADII[1] >= 32);
+  for (let i = 1; i < RADII.length; i++) assert.ok(RADII[i] > RADII[i - 1]);
 });

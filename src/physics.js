@@ -1,11 +1,13 @@
 export const WIDTH = 540, HEIGHT = 960;
 export const ARENA = { x: 270, y: 475, radius: 244, top: 245 };
-export const RADII = [12, 18, 25, 34, 45, 58, 74, 92];
+export const RADII = [24, 32, 41, 52, 65, 80, 97, 116];
 export const FINAL_TIME = 60;
+export const FINAL_MERGE_TIME = 59.8;
+export const LAST_SHOT_TIME = 59.6;
 export const STARTER_COUNT = 128;
 export class Simulation {
   constructor(onMerge = () => {}) { this.onMerge = onMerge; this.reset(); }
-  reset() { this.balls = []; this.particles = []; this.elapsed = 0; this.nextDrop = 0; this.merges = 0; this.highest = 0; this.spawned = 0; this.shots = 0; this.lastShot = -Infinity; this.complete = false; this.finalAt = null; this.guides = []; this.id = 0; this.seed = 8271; }
+  reset() { this.balls = []; this.particles = []; this.ripples = []; this.elapsed = 0; this.nextDrop = 0; this.merges = 0; this.highest = 0; this.spawned = 0; this.shots = 0; this.lastShot = -Infinity; this.complete = false; this.finalAt = null; this.guides = []; this.id = 0; this.seed = 8271; }
   random() { this.seed = (this.seed * 1664525 + 1013904223) >>> 0; return this.seed / 4294967296; }
   addBall(level = 0, x = ARENA.x, y = ARENA.top + 20, vx = 0, vy = 100) {
     const ball = { id: ++this.id, level, x, y, vx, vy, r: RADII[level], angle: 0, spin: (this.random() - .5) * 1.8, age: 0 };
@@ -14,10 +16,11 @@ export class Simulation {
   step(dt) {
     this.elapsed += dt;
     if (Math.abs(this.elapsed - FINAL_TIME) < 1e-7) this.elapsed = FINAL_TIME;
-    if (!this.complete && this.shots < STARTER_COUNT && this.elapsed >= this.nextDrop && this.balls.length < 64) {
+    if (Math.abs(this.elapsed - FINAL_MERGE_TIME) < 1e-7) this.elapsed = FINAL_MERGE_TIME;
+    if (!this.complete && this.shots < STARTER_COUNT && this.elapsed + 1e-7 >= this.nextDrop) {
       this.addBall(0, ARENA.x, ARENA.top + 20, (this.random() - .5) * 150, 240);
       this.shots++; this.lastShot = this.elapsed;
-      this.nextDrop = this.elapsed + .32;
+      this.nextDrop = this.shots * LAST_SHOT_TIME / (STARTER_COUNT - 1);
     }
     for (const b of this.balls) {
       b.age += dt; b.vy += 345 * dt;
@@ -43,8 +46,8 @@ export class Simulation {
       const dueGuide = a.level === b.level && this.guides.find(g => this.elapsed >= g.end && ((g.a === a && g.b === b) || (g.a === b && g.b === a)));
       if (d >= sum && !dueGuide) continue;
       const finalePair = a.level === 6 && b.level === 6;
-      if (finalePair && this.elapsed < FINAL_TIME - 1e-7) continue;
-      if (a.level === b.level && a.level < 7 && a.age > .12 && b.age > .12) {
+      if (finalePair && this.elapsed < FINAL_MERGE_TIME - 1e-7) continue;
+      if (a.level === b.level && a.level < 7 && ((a.age > .12 && b.age > .12) || dueGuide)) {
         consumed.add(a.id); consumed.add(b.id);
         births.push({ level: a.level + 1, x: dueGuide ? dueGuide.x : (a.x + b.x) / 2, y: dueGuide ? dueGuide.y : (a.y + b.y) / 2, vx: (a.vx + b.vx) / 2 + (this.random() - .5) * 110, vy: Math.min(-140, (a.vy + b.vy) / 2 - 170) });
         continue;
@@ -63,12 +66,14 @@ export class Simulation {
     if (consumed.size) this.balls = this.balls.filter(b => !consumed.has(b.id));
     for (const b of births) {
       this.addBall(b.level, b.x, b.y, b.vx, b.vy); this.merges++; this.highest = Math.max(this.highest, b.level);
-      if (b.level === 7) { this.complete = true; this.finalAt = FINAL_TIME; }
-      for (let i = 0; i < 14; i++) { const angle = this.random() * Math.PI * 2, speed = 35 + this.random() * 110; this.particles.push({ x: b.x, y: b.y, vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed, life: .5, level: b.level }); }
+      if (b.level === 7) { this.complete = true; this.finalAt = this.elapsed; }
+      this.ripples.push({ x: b.x, y: b.y, r: RADII[b.level], life: .4, level: b.level });
       this.onMerge(b.level);
     }
     for (const p of this.particles) { p.life -= dt; p.x += p.vx * dt; p.y += p.vy * dt; }
     this.particles = this.particles.filter(p => p.life > 0);
+    for (const ripple of this.ripples) ripple.life -= dt;
+    this.ripples = this.ripples.filter(ripple => ripple.life > 0);
   }
   guideFinale() {
     // Late-run attraction completes actual equal-stage pairs; it never replaces
@@ -76,8 +81,9 @@ export class Simulation {
     const live = new Set(this.balls);
     this.guides = this.guides.filter(g => live.has(g.a) && live.has(g.b));
     for (let level = 0; level <= 6; level++) {
-      const start = level === 6 ? 56 : 42 + level * 2;
-      const end = level === 6 ? FINAL_TIME : start + 1.8;
+      const start = level === 6 ? 59.5 : 42 + level * 2;
+      const latest = level === 6 ? FINAL_MERGE_TIME : LAST_SHOT_TIME + (level + 1) * .025;
+      const end = level === 6 ? FINAL_MERGE_TIME : Math.min(latest, Math.max(start + 1.8, this.elapsed + .25));
       if (this.elapsed < start || this.complete) continue;
       const assigned = new Set(this.guides.flatMap(g => [g.a, g.b]));
       const candidates = this.balls.filter(b => b.level === level && !assigned.has(b)).sort((a, b) => a.id - b.id);
